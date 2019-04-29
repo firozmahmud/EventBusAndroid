@@ -24,6 +24,6 @@ public class ChildActivity extends AppCompatActivity {
     }
 
     public void postMessage(View view) {
-        EventBus.getDefault().post(new MessageEvent(messageEditText.getText().toString()));
+        EventBus.getDefault().postSticky(new MessageEvent(messageEditText.getText().toString()));
     }
 }

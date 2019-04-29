@@ -11,6 +11,7 @@ import com.example.eventbusandroid.model.MessageEvent;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         EventBus.getDefault().register(this);
     }
 
-    @Subscribe
+    @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
     public void onEvent(MessageEvent event) {
         messageTextView.setText(event.message);
     }
